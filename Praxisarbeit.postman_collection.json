@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "110875a3-5c93-471a-9900-6a7b90e29405",
+		"name": "Praxisarbeit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29157746"
+	},
+	"item": [
+		{
+			"name": "Registrations",
+			"item": [
+				{
+					"name": "Get-All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Registration",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-ByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Registration/Davud%20Ponjevic",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Registration",
+								"Davud%20Ponjevic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post-newPerson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Arda\",\r\n  \"email\": \"arda.dursun@gmail.com\",\r\n  \"phone\": \"+412345633\",\r\n  \"priority\": \"Hoch\",\r\n  \"service\": \"Grosser Service\",\r\n  \"createDate\": \"2023-11-17T14:39:29.683Z\",\r\n  \"pickupDate\": \"2023-11-17T14:39:29.683Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/Registration",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put-newPerson",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Arda Dursun\",\r\n  \"email\": \"arda.dursun@student.ipso.ch\",\r\n  \"phone\": \"+41796784665\",\r\n  \"priority\": \"Hoch\",\r\n  \"service\": \"kleiner Service\",\r\n  \"createDate\": \"2023-11-17T11:45:02.504Z\",\r\n  \"pickupDate\": \"2023-11-17T11:45:02.504Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/Registration/Arda%20",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Registration",
+								"Arda%20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Person",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Registration/Arda%20Dursun",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Registration",
+								"Arda%20Dursun"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.collectionVariables.set(\"token\", data.value.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"admin\",\r\n  \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/Users/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Mitarbeiter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.collectionVariables.set(\"token\", data.value.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"Mitarbeiter7\",\r\n  \"password\": \"M7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/Users/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://localhost:7113",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}

@@ -6,24 +6,37 @@ namespace Praxisarbeit.Model
     public class Order
     {
         [Key]
-        public int OrderID { get; set; }
+        public int Id { get; set; }
 
-        // Fremdschlüssel für Customer
-        [ForeignKey("Customer")]
-        public int CustomerID { get; set; }
+        public int? UserId { get; set; }
 
-        public RegistrationUser Customer { get; set; }
+        public virtual User User { get; set; }
 
-        // Fremdschlüssel für Priority
-        [ForeignKey("Priority")]
-        public int PriorityID { get; set; }
+        public int PriorityId { get; set; }
 
-        public Priority Priority { get; set; }
+        public virtual Priority Priority { get; set; }
+
+        public int ServiceId { get; set; }
+
+        public virtual Service Service { get; set; }
+
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [Phone]
+        public string Phone { get; set; }
 
         [Required]
         public DateTime CreateDate { get; set; }
 
         [Required]
         public DateTime PickupDate { get; set; }
+
     }
 }

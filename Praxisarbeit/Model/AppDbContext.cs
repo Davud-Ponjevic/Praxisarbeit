@@ -10,16 +10,15 @@ namespace Praxisarbeit.Model
         {
         }
 
-        public DbSet<RegistrationUser> Registrations { get; set; }
+        public DbSet<Order> Registrations { get; set; }
         public DbSet<Priority> Priorities { get; set; }
-        public DbSet<Order> Orders { get; set; }
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Seed Users
+            // Users hinzufügen
             modelBuilder.Entity<User>().HasData(
                 new User() { Id = 1, UserName = "admin", Password = "admin" },
                 new User() { Id = 2, UserName = "Mitarbeiter1", Password = "M1" },
@@ -34,13 +33,22 @@ namespace Praxisarbeit.Model
                 new User() { Id = 11, UserName = "Mitarbeiter10", Password = "M10" }
             );
 
-            // Seed Priorities
+            // Properties hinzufügen
             modelBuilder.Entity<Priority>().HasData(
-                new Priority() { PriorityID = 1, PriorityType = "Tief", DaysToCompletion = 12 },
-                new Priority() { PriorityID = 2, PriorityType = "Standard", DaysToCompletion = 7 },
-                new Priority() { PriorityID = 3, PriorityType = "Express", DaysToCompletion = 5 }
+                new Priority() { Id = 1, PriorityType = "Tief", DaysToCompletion = 12 },
+                new Priority() { Id = 2, PriorityType = "Standard", DaysToCompletion = 7 },
+                new Priority() { Id = 3, PriorityType = "Express", DaysToCompletion = 5 }
             );
 
+            // Service hinzufügen
+            modelBuilder.Entity<Service>().HasData(
+                new Service() { Id = 1, Beschreibung = "Kleiner Service" },
+                new Service() { Id = 2, Beschreibung = "Grosser Service" },
+                new Service() { Id = 3, Beschreibung = "Rennski-Service" },
+                new Service() { Id = 4, Beschreibung = "Bindung montieren und einstellen" },
+                new Service() { Id = 5, Beschreibung = "Fell zuschneiden" },
+                new Service() { Id = 6, Beschreibung = "Heisswachsen" }
+                );
 
 
         }

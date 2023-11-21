@@ -17,24 +17,15 @@ public class RegistrationController : ControllerBase
         _dbContext = dbContext;
     }
 
-    /// <summary>
-    /// Get (Alle)
-    /// </summary>
-    /// <returns></returns>
     [HttpGet]
-    public IActionResult Get()
+    public IActionResult GetAllRegistrations()
     {
         var registrations = _dbContext.Registrations.ToList();
         return Ok(registrations);
     }
 
-    /// <summary>
-    /// Get by ID
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
     [HttpGet("{name}")]
-    public IActionResult Get(string name)
+    public IActionResult GetRegistrationByName(string name)
     {
         var registration = _dbContext.Registrations.FirstOrDefault(r => r.Name == name);
 
@@ -46,13 +37,8 @@ public class RegistrationController : ControllerBase
         return Ok(registration);
     }
 
-    /// <summary>
-    /// Post
-    /// </summary>
-    /// <param name="registrationDto"></param>
-    /// <returns></returns>
     [HttpPost]
-    public IActionResult Post([FromBody] RegistrationDto registrationDto)
+    public IActionResult CreateRegistration([FromBody] RegistrationDto registrationDto)
     {
         if (registrationDto == null)
         {
@@ -61,19 +47,22 @@ public class RegistrationController : ControllerBase
 
         try
         {
-            var registrationModel = new RegistrationUser
+            var registrationModel = new Order
             {
                 Name = registrationDto.Name,
                 Email = registrationDto.Email,
                 Phone = registrationDto.Phone,
-                Priority = registrationDto.Priority,
-                Service = registrationDto.Service,
-                CreateDate = registrationDto.CreateDate,
+                PriorityId = registrationDto.PriorityId,
+                ServiceId = registrationDto.ServiceId,
+                CreateDate = DateTime.Now,
                 PickupDate = registrationDto.PickupDate
             };
+            if (registrationDto.UserId != null)
+            {
+                registrationModel.UserId = registrationDto.UserId;
+                
+            }
 
-            // Fügen Sie die Daten zur Datenbank hinzu und speichern Sie die Änderungen
-            registrationModel.CreateDate = DateTime.Now;
             _dbContext.Registrations.Add(registrationModel);
             _dbContext.SaveChanges();
 
@@ -85,15 +74,8 @@ public class RegistrationController : ControllerBase
         }
     }
 
-
-    /// <summary>
-    /// Put Methode
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="registrationDto"></param>
-    /// <returns></returns>
     [HttpPut("{name}")]
-    public IActionResult Put(string name, [FromBody] RegistrationDto registrationDto)
+    public IActionResult UpdateRegistration(string name, [FromBody] RegistrationDto registrationDto)
     {
         var existingRegistration = _dbContext.Registrations.FirstOrDefault(r => r.Name == name);
 
@@ -102,28 +84,23 @@ public class RegistrationController : ControllerBase
             return NotFound("Registration not found");
         }
 
-        // Aktualisiere die Eigenschaften der vorhandenen Registrierung mit den neuen Daten
         existingRegistration.Name = registrationDto.Name;
         existingRegistration.Email = registrationDto.Email;
         existingRegistration.Phone = registrationDto.Phone;
-        existingRegistration.Priority = registrationDto.Priority;
-        existingRegistration.Service = registrationDto.Service;
+        existingRegistration.PriorityId = registrationDto.PriorityId;
+        existingRegistration.ServiceId = registrationDto.ServiceId;
         existingRegistration.PickupDate = registrationDto.PickupDate;
 
-        // Speichern Sie die Änderungen in der Datenbank
         _dbContext.SaveChanges();
 
         return Ok("Registration updated successfully");
     }
+  
 
-    /// <summary>
-    /// Delete
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
+
     [HttpDelete("{name}")]
     [Authorize]
-    public IActionResult Delete(string name)
+    public IActionResult DeleteRegistration(string name)
     {
         var registration = _dbContext.Registrations.FirstOrDefault(r => r.Name == name);
 
@@ -132,11 +109,9 @@ public class RegistrationController : ControllerBase
             return NotFound("Registration not found");
         }
 
-        // Lösche die Registrierung aus der Datenbank
         _dbContext.Registrations.Remove(registration);
         _dbContext.SaveChanges();
 
         return Ok("Registration deleted successfully");
     }
-
 }

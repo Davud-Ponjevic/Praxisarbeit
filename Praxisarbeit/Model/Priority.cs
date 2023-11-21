@@ -5,7 +5,7 @@ namespace Praxisarbeit.Model
     public class Priority
     {
         [Key]
-        public int PriorityID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string PriorityType { get; set; }
