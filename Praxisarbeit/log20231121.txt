@@ -1,0 +1,32 @@
+2023-11-21 16:08:52.965 +01:00 [INF] User profile is available. Using 'C:\Users\davud\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-11-21 16:08:56.684 +01:00 [INF] Now listening on: https://localhost:7113
+2023-11-21 16:08:56.687 +01:00 [INF] Now listening on: http://localhost:5297
+2023-11-21 16:08:56.693 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 16:08:56.697 +01:00 [INF] Hosting environment: Development
+2023-11-21 16:08:56.700 +01:00 [INF] Content root path: C:\Users\davud\OneDrive\Desktop\Praxisarbeit\Praxisarbeit
+2023-11-21 16:08:58.929 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/swagger/index.html - -
+2023-11-21 16:09:00.133 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/swagger/index.html - - - 200 - text/html;charset=utf-8 1216.2750ms
+2023-11-21 16:09:00.154 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/_framework/aspnetcore-browser-refresh.js - -
+2023-11-21 16:09:00.183 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/_framework/aspnetcore-browser-refresh.js - - - 200 13760 application/javascript;+charset=utf-8 28.0324ms
+2023-11-21 16:09:00.265 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/_vs/browserLink - -
+2023-11-21 16:09:00.575 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 310.9180ms
+2023-11-21 16:09:00.924 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/swagger/v1/swagger.json - -
+2023-11-21 16:09:01.305 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 380.6827ms
+2023-11-21 16:09:05.775 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/index.html - -
+2023-11-21 16:09:05.889 +01:00 [INF] The file /index.html was not modified
+2023-11-21 16:09:05.891 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/index.html - - - 304 - text/html 116.0747ms
+2023-11-21 16:09:05.907 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/styles/main.css - -
+2023-11-21 16:09:05.908 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/bilder/LogoJetstream.png - -
+2023-11-21 16:09:05.911 +01:00 [INF] The file /styles/main.css was not modified
+2023-11-21 16:09:05.914 +01:00 [INF] The file /bilder/LogoJetstream.png was not modified
+2023-11-21 16:09:05.916 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/styles/main.css - - - 304 - text/css 9.6579ms
+2023-11-21 16:09:05.920 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/bilder/LogoJetstream.png - - - 304 - image/png 12.0387ms
+2023-11-21 16:09:05.954 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/_framework/aspnetcore-browser-refresh.js - -
+2023-11-21 16:09:05.954 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/_vs/browserLink - -
+2023-11-21 16:09:05.956 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/_framework/aspnetcore-browser-refresh.js - - - 200 13760 application/javascript;+charset=utf-8 3.0485ms
+2023-11-21 16:09:05.973 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/bilder/Hintergrundfürwebseite.jpg - -
+2023-11-21 16:09:05.977 +01:00 [INF] The file /bilder/Hintergrundfürwebseite.jpg was not modified
+2023-11-21 16:09:05.978 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 23.1863ms
+2023-11-21 16:09:05.980 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/bilder/Hintergrundfürwebseite.jpg - - - 304 - image/jpeg 7.2513ms
+2023-11-21 16:09:06.120 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7113/favicon.ico - -
+2023-11-21 16:09:07.379 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7113/favicon.ico - - - 404 0 - 1259.1167ms
